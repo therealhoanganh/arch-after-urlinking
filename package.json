@@ -1,0 +1,13 @@
+{
+  "name": "arch-after-urlinking",
+  "version": "0.1.0",
+  "description": "Obsidian plugin that links a pasted address to its note in another vault, or titles it.",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test test/lib.test.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}
