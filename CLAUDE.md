@@ -35,8 +35,9 @@ on, nothing in `lib/` requires `obsidian`).
   note in THOUGHTS' `TRASH` or an excluded old copy is never linked to.
 - **The index lives in memory only.** A settings or cache file in the plugin
   folder is mirrored between the Mac and the PC, and paths differ between them.
-  The first build takes about 3 s over 15 vaults and 6,900 notes (measured
-  2026-09-26), in the background after startup; a refresh stats every file and
+  The first build takes about 3 s over 15 vaults and 6,900 notes in plain Node,
+  and 6 to 13 s inside Obsidian (measured 2026-09-26), in the background after
+  startup; a refresh stats every file and
   rereads only changed ones (0.25 s), and runs before a paste when the index is
   over a minute old.
 - **Nothing here writes by itself**, so there is no `automaticOn`: building the

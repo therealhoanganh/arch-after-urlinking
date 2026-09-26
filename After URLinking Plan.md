@@ -54,6 +54,14 @@ With text selected, the selection becomes the link text instead of the title.
   for their links first. Today only 58 of THOUGHTS' 1,468 links (23 distinct pages)
   have a note in another vault, so a bulk conversion now would change little.
 
+- **Old copies are never linked to** (your choice, 2026-09-26: *"exclude them to keep
+  things simple"*): Ideaverse, Archive and TESTFIELD are left out in the plugin's
+  settings, and the Documents vault excludes `backup-strategy/_before-video-move/`.
+  The setting belongs to each vault, so THOUGHTS needs the same three when it gets
+  the plugin. 12 addresses still have two notes, all in vaults you use (five CHAOS
+  films with an old copy in `_/Old Film Notes`, a few doubled downloads, split
+  iCanStudy pages, *The Acceleration (Safe)*); for those a menu asks which note.
+
 ## Later
 
 - **Colour the two kinds of link apart**, in your words: *"we will need to
