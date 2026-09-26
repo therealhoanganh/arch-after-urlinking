@@ -61,3 +61,12 @@ even when it is on the list (otherwise testing inside TESTFIELD would find nothi
 and a forced rebuild asked for during a running one now runs again afterwards, where
 before it returned the running one, built with the old settings.
 
+## 2026-09-26 — Released 0.1.0, installed in THOUGHTS
+
+He clicked the links in `TESTFIELD/ARCH test/URLinking Test.md` (*"For the test, I did
+click and they worked."*) and asked: *"Add the plugin to THOUGHTS for me. And create github
+repo for it two."* The repository is public, like the other ARCH plugins, because BRAT
+installs from GitHub releases and cannot read a private one. Release 0.1.0 carries the
+built `dist/main.js` and `dist/manifest.json`. In THOUGHTS it was installed through BRAT's
+`addPlugin`, the left-out list set to Ideaverse, Archive and TESTFIELD (the setting belongs
+to each vault), and Auto Link Title turned off.

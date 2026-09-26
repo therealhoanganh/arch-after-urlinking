@@ -94,18 +94,21 @@ on, nothing in `lib/` requires `obsidian`).
 
 ## Where things stand (edit in place)
 
-**0.1.0, built and tested in `TESTFIELD` on 2026-09-26** (left-out list set there), symlinked there like
-the siblings; **Auto Link Title is turned off in TESTFIELD** for the test (turn it
-back on with `obsidian vault=TESTFIELD plugin:enable id=obsidian-auto-link-title`
-if the test ends without this plugin). `npm test` has 6 passing tests on `lib/`.
+**0.1.0, released 2026-09-26 and installed through BRAT in `⏾ THOUGHTS`**
+(public repository `github.com/therealhoanganh/arch-after-urlinking`, so BRAT can
+read it). In THOUGHTS the left-out list holds Ideaverse, Archive and TESTFIELD, and
+**Auto Link Title is turned off** there, since two plugins rewriting one paste fight
+each other. Still symlinked into `TESTFIELD` for development, where Auto Link Title
+stays off too. `npm test` has 6 passing tests on `lib/`.
 Inside the running app, through `obsidian eval`: every row of the plan's table,
 the NBSP vault `⏻ TECHNOS`, a note in this vault as `[[…]]`, Reddit, X,
 Wikipedia's parentheses, the places a paste is left alone (inline code, a code
 block, a link's address), the command on an existing link with and without a
 note, two commands during an index refresh, and the several-notes menu (choose,
-and Escape for the web link). **Not yet done: clicking an `obsidian://` link to
-see it open** (it would open other vaults' windows on his screen); the note
-`TESTFIELD/ARCH test/URLinking Test.md` holds links for him to click.
+and Escape for the web link). **He clicked the links in
+`TESTFIELD/ARCH test/URLinking Test.md` and they opened** (2026-09-26), the NBSP
+vault and the Vietnamese file name among them. In THOUGHTS a TECHNOS video address
+resolved to its note after the install.
 
 - A cursor put inside the frontmatter in Live Preview is moved below the
   properties by Obsidian, so the frontmatter rule only matters in Source mode.
@@ -115,6 +118,7 @@ see it open** (it would open other vaults' windows on his screen); the note
   the same note was clean. If it recurs, look at whether After Clipping writes
   back a note it read before the editor's latest change.
 
-Not published: no GitHub repository yet. It becomes a public one (BRAT needs it)
-when he moves it out of TESTFIELD. The later work (colour for vault links, a
+Cutting a release is the family's (`~/Documents/CLAUDE.md`): `npm run build`, tag
+equal to `manifest.json`'s version, `gh release create <v> dist/main.js
+dist/manifest.json`. The later work (colour for vault links, a
 repair command, converting THOUGHTS' existing links) is in the plan note, *Later*.

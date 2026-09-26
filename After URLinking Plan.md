@@ -49,6 +49,9 @@ With text selected, the selection becomes the link text instead of the title.
 - **Tested in TESTFIELD first**, not THOUGHTS (your choice, 2026-09-26). Auto Link
   Title is turned off there for the test, since two plugins rewriting one paste
   fight each other. THOUGHTS, and any other vault, only after it has proved itself.
+- **In THOUGHTS since 2026-09-26**, after you clicked the test links and they opened.
+  Installed through BRAT, with Ideaverse, Archive and TESTFIELD left out and Auto
+  Link Title turned off there.
 - **The links already in THOUGHTS are converted later, by hand, with Claude's
   help**: go through the thought notes and month notes entirely and create notes
   for their links first. Today only 58 of THOUGHTS' 1,468 links (23 distinct pages)
@@ -77,4 +80,4 @@ With text selected, the selection becomes the link text instead of the title.
   to find the note again by its name (the link text holds the note's title and
   vault).
 - **Convert a whole note's links** as a command, for the pass through THOUGHTS.
-- **Replace Auto Link Title in THOUGHTS**, then decide about the other vaults.
+- **Decide about the other vaults**: Auto Link Title is replaced in THOUGHTS only.
