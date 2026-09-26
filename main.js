@@ -19,7 +19,9 @@ const DEFAULT_SETTINGS = {
   fetchTitles: true,
   // The properties a note names its source in. Case does not matter.
   urlKeys: 'url, source',
-  // Vault names never linked to, such as old copies.
+  // Vault names never linked to, such as old copies. His list of 2026-09-26:
+  // Ideaverse, Archive, TESTFIELD. The vault being worked in is searched even
+  // when listed, so a test inside TESTFIELD still finds TESTFIELD's notes.
   leaveOutVaults: [],
 };
 
@@ -101,9 +103,11 @@ class ArchAfterURLinking extends Plugin {
     return String(this.settings.urlKeys || '').split(',').map((s) => s.trim()).filter(Boolean);
   }
 
-  // One refresh at a time; a caller arriving mid-refresh waits for that one.
+  // One refresh at a time; a caller arriving mid-refresh waits for that one,
+  // and a forced one (settings changed) then runs again, since the running one
+  // started with the old settings.
   refreshIndex(force, announce) {
-    if (this.indexing) return this.indexing;
+    if (this.indexing) return force ? this.indexing.then(() => this.refreshIndex(true, announce)) : this.indexing;
     if (!force && Date.now() - this.indexedAt < INDEX_MAX_AGE_MS) return Promise.resolve();
     this.indexing = this.doRefresh(force, announce).finally(() => { this.indexing = null; });
     return this.indexing;
@@ -124,7 +128,7 @@ class ArchAfterURLinking extends Plugin {
     const scans = {};
     let read = 0;
     for (const v of all) {
-      if (leaveOut.has(v.name)) continue;
+      if (leaveOut.has(v.name) && v.path !== here.path) continue;
       const prev = force ? null : this.scans[v.name];
       try {
         scans[v.name] = await L.scanVault(v, keys, prev);
@@ -398,9 +402,13 @@ class ArchAfterURLinkingSettingTab extends PluginSettingTab {
     for (const v of p.vaults) {
       const scan = p.scans[v.name];
       const withSource = scan ? Object.values(scan.files).filter((f) => f.urls.length).length : 0;
+      const isHere = v.path === p.vaultRoot();
+      const state = !leaveOut.has(v.name) ? `${withSource} notes with a source`
+        : isHere ? `listed as left out, but still searched, since it is the vault you are in (${withSource} notes with a source)`
+        : 'left out';
       new Setting(containerEl)
         .setName(v.name)
-        .setDesc(leaveOut.has(v.name) ? `${v.path} — left out` : `${v.path} — ${withSource} notes with a source`)
+        .setDesc(`${v.path} — ${state}`)
         .addToggle((t) => t.setValue(!leaveOut.has(v.name)).onChange(async (on) => {
           if (on) leaveOut.delete(v.name); else leaveOut.add(v.name);
           s.leaveOutVaults = [...leaveOut];

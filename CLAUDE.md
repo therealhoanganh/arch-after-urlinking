@@ -56,8 +56,16 @@ on, nothing in `lib/` requires `obsidian`).
   from the folder name and encode as `%C2%A0`.
 - **Several notes for one address**: this vault's first, then a menu lists them
   with "The web link only". 84 addresses had several notes on 2026-09-26, nearly
-  all old copies (Ideaverse, `Documents/backup-strategy/_before-video-move/`,
-  TESTFIELD against CHAOS). A vault can be left out in settings.
+  all old copies. **He left out Ideaverse, Archive and TESTFIELD** (*"exclude them
+  to keep things simple"*), and `backup-strategy/_before-video-move/` went into the
+  Documents vault's *Excluded files*. That leaves 12, all inside vaults he uses:
+  five CHAOS films with an old copy in `_/Old Film Notes` (his todo to compare and
+  delete), duplicate downloads in CHAOS, one iCanStudy page split into several
+  notes, and Psycho-history's *The Acceleration (Safe)*.
+- **The left-out list is a setting of each vault**, so **every vault that installs
+  the plugin needs the same list** (Ideaverse, Archive, TESTFIELD); set it in the
+  settings tab, never in `data.json` while Obsidian runs. The vault being worked in
+  is searched even when listed, so a test inside TESTFIELD still finds its notes.
 - **The command *Link the URL under the cursor*** works on a bare address, a
   selected one, or an existing `[text](https://…)` link. On an existing link it
   only ever swaps in a note link; with no note, the link is left exactly as it was.
@@ -85,7 +93,7 @@ on, nothing in `lib/` requires `obsidian`).
 
 ## Where things stand (edit in place)
 
-**0.1.0, built and tested in `TESTFIELD` on 2026-09-26**, symlinked there like
+**0.1.0, built and tested in `TESTFIELD` on 2026-09-26** (left-out list set there), symlinked there like
 the siblings; **Auto Link Title is turned off in TESTFIELD** for the test (turn it
 back on with `obsidian vault=TESTFIELD plugin:enable id=obsidian-auto-link-title`
 if the test ends without this plugin). `npm test` has 6 passing tests on `lib/`.

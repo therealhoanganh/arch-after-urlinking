@@ -49,3 +49,15 @@ setting `keepWebLink` now defaults to off, and the format is in `noteText()` in
 `lib/links.js`. The one cost: a planned repair of links to a renamed note can no longer
 rely on the web address, and has to find the note by its name.
 
+## 2026-09-26 — Old copies left out of the index
+
+84 addresses had more than one note, so a paste asked which one. Asked whether Ideaverse,
+Archive and TESTFIELD should be left out, he answered: *"No, exclude them to keep things
+simple."* TESTFIELD's settings now list the three, and the Documents vault's *Excluded
+files* gained `backup-strategy/_before-video-move/` (set through Obsidian, not by editing
+`app.json`). 12 addresses with several notes remain, all inside vaults he uses; they are
+listed in `CLAUDE.md`. Two code changes came with it: the vault being worked in is searched
+even when it is on the list (otherwise testing inside TESTFIELD would find nothing there),
+and a forced rebuild asked for during a running one now runs again afterwards, where
+before it returned the running one, built with the old settings.
+
