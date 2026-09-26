@@ -37,3 +37,15 @@ plugin in THOUGHTS' September month note.
 `127.0.0.1`), YouTube page titles read " - YouTube" to a script, and 84 addresses
 have more than one note, nearly all old copies. Each is handled as recorded in
 `CLAUDE.md`.
+
+## 2026-09-26 — The web link off by default; "(Vault: …)" in the link text
+
+Seeing `[↗](youtube link)` after a note link, he asked whether it was for testing: he had
+read the plan's "Note link + web link" as the plugin working on both kinds of link, not
+as both links written side by side. His ruling: *"I think it should be turn off by default
+becaue It does clutter the note visual."* And for the link text: *"replace "Note name ·
+Vault name" with "Note name (Vault: Vault name)", for better visual clarity."* The
+setting `keepWebLink` now defaults to off, and the format is in `noteText()` in
+`lib/links.js`. The one cost: a planned repair of links to a renamed note can no longer
+rely on the web address, and has to find the note by its name.
+

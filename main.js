@@ -10,9 +10,10 @@ const DEFAULT_SETTINGS = {
   // Rewrite a pasted address. Off leaves only the command.
   linkOnPaste: true,
   // [↗](https://…) beside a note link, so the address survives a rename or a
-  // move of the note (his choice, 2026-09-26).
-  keepWebLink: true,
-  // [Title · Vault], so he sees where a link goes while reading (his choice).
+  // move of the note. Off by default: it clutters the note (his ruling,
+  // 2026-09-26, reversing the plan's default).
+  keepWebLink: false,
+  // [Title (Vault: Name)], so he sees where a link goes while reading.
   vaultInLinkText: true,
   // Fetch a page's title when no note exists for it (Auto Link Title's job).
   fetchTitles: true,
@@ -335,7 +336,7 @@ class ChooseNoteModal extends SuggestModal {
 
   renderSuggestion(n, el) {
     if (n.webOnly) { el.createEl('div', { text: 'The web link only' }); return; }
-    el.createEl('div', { text: `${n.title} · ${n.vault}` });
+    el.createEl('div', { text: `${n.title} (Vault: ${n.vault})` });
     el.createEl('small', { text: n.file, cls: 'mod-muted' });
   }
 
@@ -369,12 +370,12 @@ class ArchAfterURLinkingSettingTab extends PluginSettingTab {
 
     new Setting(containerEl)
       .setName('Keep the web link beside a note link')
-      .setDesc('Writes [↗](https://…) after the link to the note, so the address survives if that note is renamed or moved.')
+      .setDesc('Writes [↗](https://…) after the link to the note, so the address survives if that note is renamed or moved. Off by default, because it clutters the note.')
       .addToggle((t) => t.setValue(s.keepWebLink).onChange(async (v) => { s.keepWebLink = v; await p.saveSettings(); }));
 
     new Setting(containerEl)
       .setName('Name the vault in the link text')
-      .setDesc('[Note title · Vault] rather than [Note title], so you see where a link goes while reading.')
+      .setDesc('[Note title (Vault: Vault name)] rather than [Note title], so you see where a link goes while reading.')
       .addToggle((t) => t.setValue(s.vaultInLinkText).onChange(async (v) => { s.vaultInLinkText = v; await p.saveSettings(); }));
 
     new Setting(containerEl)

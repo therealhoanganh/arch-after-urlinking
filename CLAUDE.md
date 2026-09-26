@@ -46,9 +46,10 @@ on, nothing in `lib/` requires `obsidian`).
 - **Left alone**: a paste inside a code block, inline code, a link's address
   (`](` or `<` just before the cursor), or the frontmatter, where a `url`
   property must stay a plain address for After Clipping.
-- **The web link is kept beside a note link** (`[Title · Vault](obsidian://…)
-  [↗](https://…)`) and **the vault is named in the link text**, both his choices;
-  both are settings.
+- **A note link reads `[Note title (Vault: Vault name)](obsidian://…)`**, his
+  format of 2026-09-26. **The web link beside it (`[↗](https://…)`) is off by
+  default**, his ruling the same day, because it clutters the note; it is the
+  setting *Keep the web link beside a note link*.
 - **An `obsidian://` address is encoded with `( ) ' ! *` escaped too**:
   `encodeURIComponent` leaves them, and a `)` ends a markdown link's address.
   Vault names with a non-breaking space (`⏻ TECHNOS`) are never retyped; they come

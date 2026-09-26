@@ -48,8 +48,10 @@ test('classify and write', () => {
   const c = L.classify('https://youtu.be/abcdefghijk?si=x', ctx);
   assert.strictEqual(c.kind, 'web');
   assert.strictEqual(c.notes.length, 1);
+  assert.strictEqual(L.noteLink(note, { vaultInLinkText: true, keepWebLink: false }, '', c.url),
+    '[The Acceleration (Vault: Psycho-history)](obsidian://open?vault=Psycho-history&file=Sources%2FLectures%2FThe%20Acceleration)');
   assert.strictEqual(L.noteLink(note, { vaultInLinkText: true, keepWebLink: true }, '', c.url),
-    '[The Acceleration · Psycho-history](obsidian://open?vault=Psycho-history&file=Sources%2FLectures%2FThe%20Acceleration) [↗](https://youtu.be/abcdefghijk?si=x)');
+    '[The Acceleration (Vault: Psycho-history)](obsidian://open?vault=Psycho-history&file=Sources%2FLectures%2FThe%20Acceleration) [↗](https://youtu.be/abcdefghijk?si=x)');
   const o = L.classify('obsidian://open?path=%2Fv%2FPsycho-history%2FWiki%2FA.md', ctx);
   assert.deepStrictEqual(o.note, { vault: 'Psycho-history', file: 'Wiki/A', title: 'A', heading: '' });
   assert.strictEqual(L.classify('obsidian://open?vault=Nope&file=A', ctx), null);
