@@ -94,7 +94,8 @@ on, nothing in `lib/` requires `obsidian`).
 
 ## Where things stand (edit in place)
 
-**0.1.0, released 2026-09-26 and installed through BRAT in `⏾ THOUGHTS`**
+**0.1.0, released 2026-09-26 and installed through BRAT in `⏾ THOUGHTS`**; 0.1.1
+(2026-09-27, Title Case labels from the UI review) was copied in by hand
 (public repository `github.com/therealhoanganh/arch-after-urlinking`, so BRAT can
 read it). In THOUGHTS the left-out list holds Ideaverse, Archive and TESTFIELD, and
 **Auto Link Title is turned off** there, since two plugins rewriting one paste fight
