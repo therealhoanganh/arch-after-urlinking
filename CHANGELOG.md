@@ -79,3 +79,10 @@ Title Case, Chicago style, as in ARCH Images Plus 0.7.6: his preference, *"Actua
 prefer Title Case."* The *Vaults* heading is Obsidian's own (`setHeading`) rather than plain
 `h3` text, and the settings' fields (vault names, property names) get no spell-check
 underlines. Its note chooser is Obsidian's own suggest list and needed nothing.
+
+## 2026-09-27 — 0.1.2, the Vaults explanation under its heading
+
+The paragraph explaining the vault list sat loose under the *Vaults* heading, outside the
+setting cards; it is the heading's own description now. From his note on the ARCH plugins'
+layout the same day (*"the toggle list to paste youtube channel links in is quite ugly"*),
+which led to looking at every settings tab for loose paragraphs and bare boxes.

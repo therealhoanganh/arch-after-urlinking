@@ -401,11 +401,10 @@ class ArchAfterURLinkingSettingTab extends PluginSettingTab {
       .addText((t) => t.setValue(s.urlKeys).onChange(async (v) => { s.urlKeys = v; await p.saveSettings(); }))
       .addExtraButton((b) => b.setIcon('refresh-cw').setTooltip('Rebuild the index').onClick(() => p.refreshIndex(true, true).then(() => this.display())));
 
-    new Setting(containerEl).setName('Vaults').setHeading();
-    containerEl.createEl('p', {
-      cls: 'setting-item-description',
-      text: `Every vault Obsidian knows on this computer${p.registry ? ` (from ${p.registry})` : ''}. Turn one off to never link to its notes, such as a vault of old copies. A note under a vault's own Excluded files is never linked to.`,
-    });
+    // The heading's own description, not a loose paragraph under it (0.1.2).
+    new Setting(containerEl).setName('Vaults')
+      .setDesc(`Every vault Obsidian knows on this computer${p.registry ? ` (from ${p.registry})` : ''}. Turn one off to never link to its notes, such as a vault of old copies. A note under a vault's own Excluded files is never linked to.`)
+      .setHeading();
     const leaveOut = new Set(s.leaveOutVaults || []);
     for (const v of p.vaults) {
       const scan = p.scans[v.name];

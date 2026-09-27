@@ -1,7 +1,7 @@
 {
   "id": "arch-after-urlinking",
   "name": "𝗔𝗿𝗰𝗵 After URLinking",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "minAppVersion": "1.6.0",
   "description": "Turns a pasted link into the right link: to the note that already exists for it in any of your vaults, or titled with the page's own title. Pasted obsidian:// addresses become titled links too.",
   "author": "Hoang Anh",
