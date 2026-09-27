@@ -70,3 +70,12 @@ installs from GitHub releases and cannot read a private one. Release 0.1.0 carri
 built `dist/main.js` and `dist/manifest.json`. In THOUGHTS it was installed through BRAT's
 `addPlugin`, the left-out list set to Ideaverse, Archive and TESTFIELD (the setting belongs
 to each vault), and Auto Link Title turned off.
+
+## 2026-09-27 — 0.1.1, Title Case
+
+From the web-design-guidelines review of 2026-09-27 (`~/Documents/ARCH UI Review.md`), whose
+whole list he approved: *"Yes, proceed on."* The two commands and the setting names are in
+Title Case, Chicago style, as in ARCH Images Plus 0.7.6: his preference, *"Actually, I much
+prefer Title Case."* The *Vaults* heading is Obsidian's own (`setHeading`) rather than plain
+`h3` text, and the settings' fields (vault names, property names) get no spell-check
+underlines. Its note chooser is Obsidian's own suggest list and needed nothing.

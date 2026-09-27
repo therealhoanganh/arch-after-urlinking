@@ -42,8 +42,8 @@ class ArchAfterURLinking extends Plugin {
     this.indexedAt = 0;
     this.indexing = null;
 
-    this.addCommand({ id: 'link-url', name: 'Link the URL under the cursor', editorCallback: (editor, view) => this.linkAtCursor(editor, view) });
-    this.addCommand({ id: 'rebuild-index', name: 'Rebuild the index of notes in every vault', callback: () => this.refreshIndex(true, true) });
+    this.addCommand({ id: 'link-url', name: 'Link the URL under the Cursor', editorCallback: (editor, view) => this.linkAtCursor(editor, view) });
+    this.addCommand({ id: 'rebuild-index', name: 'Rebuild the Index of Notes in Every Vault', callback: () => this.refreshIndex(true, true) });
 
     this.registerEvent(this.app.workspace.on('editor-paste', (evt, editor, info) => this.onPaste(evt, editor, info)));
     this.addSettingTab(new ArchAfterURLinkingSettingTab(this.app, this));
@@ -359,7 +359,15 @@ class ChooseNoteModal extends SuggestModal {
 /* ---------------- settings tab ---------------- */
 
 class ArchAfterURLinkingSettingTab extends PluginSettingTab {
-  constructor(app, plugin) { super(app, plugin); this.plugin = plugin; }
+  constructor(app, plugin) {
+    super(app, plugin);
+    this.plugin = plugin;
+    // Its fields hold paths, commands, patterns and lists, not prose, so no
+    // spell-check underlines; set as each one gets focus, which is when they appear.
+    this.containerEl.addEventListener('focusin', (e) => {
+      if (e.target.matches('input[type="text"], input:not([type]), textarea')) e.target.spellcheck = false;
+    });
+  }
 
   display() {
     const { containerEl } = this;
@@ -368,32 +376,32 @@ class ArchAfterURLinkingSettingTab extends PluginSettingTab {
     containerEl.empty();
 
     new Setting(containerEl)
-      .setName('Link a pasted address')
-      .setDesc('A pasted web address becomes a link to the note that already exists for it in any vault, or a link titled with the page\'s title. A pasted obsidian:// address becomes a titled link. Off leaves only the command "Link the URL under the cursor".')
+      .setName('Link a Pasted Address')
+      .setDesc('A pasted web address becomes a link to the note that already exists for it in any vault, or a link titled with the page\'s title. A pasted obsidian:// address becomes a titled link. Off leaves only the command "Link the URL under the Cursor".')
       .addToggle((t) => t.setValue(s.linkOnPaste).onChange(async (v) => { s.linkOnPaste = v; await p.saveSettings(); }));
 
     new Setting(containerEl)
-      .setName('Keep the web link beside a note link')
+      .setName('Keep the Web Link beside a Note Link')
       .setDesc('Writes [↗](https://…) after the link to the note, so the address survives if that note is renamed or moved. Off by default, because it clutters the note.')
       .addToggle((t) => t.setValue(s.keepWebLink).onChange(async (v) => { s.keepWebLink = v; await p.saveSettings(); }));
 
     new Setting(containerEl)
-      .setName('Name the vault in the link text')
+      .setName('Name the Vault in the Link Text')
       .setDesc('[Note title (Vault: Vault name)] rather than [Note title], so you see where a link goes while reading.')
       .addToggle((t) => t.setValue(s.vaultInLinkText).onChange(async (v) => { s.vaultInLinkText = v; await p.saveSettings(); }));
 
     new Setting(containerEl)
-      .setName('Fetch page titles')
+      .setName('Fetch Page Titles')
       .setDesc('When no note exists for an address, fetch the page\'s title for the link text. YouTube titles come from YouTube\'s own title service; Reddit titles are read from the address, since Reddit does not answer scripts.')
       .addToggle((t) => t.setValue(s.fetchTitles).onChange(async (v) => { s.fetchTitles = v; await p.saveSettings(); }));
 
     new Setting(containerEl)
-      .setName('Source properties')
+      .setName('Source Properties')
       .setDesc('The properties a note names its source address in, separated by commas. Case does not matter.')
       .addText((t) => t.setValue(s.urlKeys).onChange(async (v) => { s.urlKeys = v; await p.saveSettings(); }))
       .addExtraButton((b) => b.setIcon('refresh-cw').setTooltip('Rebuild the index').onClick(() => p.refreshIndex(true, true).then(() => this.display())));
 
-    containerEl.createEl('h3', { text: 'Vaults' });
+    new Setting(containerEl).setName('Vaults').setHeading();
     containerEl.createEl('p', {
       cls: 'setting-item-description',
       text: `Every vault Obsidian knows on this computer${p.registry ? ` (from ${p.registry})` : ''}. Turn one off to never link to its notes, such as a vault of old copies. A note under a vault's own Excluded files is never linked to.`,
