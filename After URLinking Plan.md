@@ -67,7 +67,7 @@ With text selected, the selection becomes the link text instead of the title.
 
 ## Later
 
-- **Colour the two kinds of link apart**, in your words: *"we will need to
+- **Colour the two kinds of link apart** (**done 2026-10-04**: purple in Thema Universa, and Thema Support marks them in Live Preview, so this plugin needs no class of its own), in your words: *"we will need to
   differentiate them with color, in my snippet I already assign cyan to web link,
   I think I will asign purple-ish to obsidian note link. We will work more on this
   later though, cover all snippet and theme."* `uni-text-colors.css` colours web
