@@ -92,3 +92,7 @@ which led to looking at every settings tab for loose paragraphs and bare boxes.
 A test used an address on one of the sites he keeps only in Browser History's
 settings. His ruling the same day: *"just leave it inside the plugin setting."*
 The test now uses a Steam address. 6 tests, 6 passing.
+
+## 2026-10-09 — CLAUDE.md rebuilt
+
+- **`CLAUDE.md` rebuilt** (2026-10-09), in his AI rules rebuild (`~/Documents/AI Rules Rebuild Plan 2026-10-08.md`): Rules, Mistakes and Lessons, Where It Stands, one fact per line, 69 lines from 125. The old file is in `~/Documents/_/TRASH/arch-after-urlinking/`, and word for word, with every walk-through and measurement, in `~/Documents/_/AI/arch-after-urlinking/Details.md`. His word on the drafts: "they are straight forward and you can do this job well."
