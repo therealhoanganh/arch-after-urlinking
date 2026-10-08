@@ -37,7 +37,7 @@ test('obsidian addresses', () => {
 });
 
 test('source urls from frontmatter, in the shapes the family writes', () => {
-  const fm = L.frontmatter('---\nurl: "[Link](https://www.youtube.com/watch?v=dwbnTddcm4U)"\nURL: "[TMDB](https://www.themoviedb.org/tv/296756)"\nother-games:\n  - "[x](https://f95zone.to/x)"\nsource:\n  - https://a.com/1\n  - "[b](https://b.com/2)"\ntags: [a]\n---\nbody https://not.this');
+  const fm = L.frontmatter('---\nurl: "[Link](https://www.youtube.com/watch?v=dwbnTddcm4U)"\nURL: "[TMDB](https://www.themoviedb.org/tv/296756)"\nother-games:\n  - "[x](https://store.steampowered.com/x)"\nsource:\n  - https://a.com/1\n  - "[b](https://b.com/2)"\ntags: [a]\n---\nbody https://not.this');
   assert.deepStrictEqual(L.sourceUrls(fm, ['url', 'source']),
     ['https://www.youtube.com/watch?v=dwbnTddcm4U', 'https://www.themoviedb.org/tv/296756', 'https://a.com/1', 'https://b.com/2']);
 });

@@ -86,3 +86,9 @@ The paragraph explaining the vault list sat loose under the *Vaults* heading, ou
 setting cards; it is the heading's own description now. From his note on the ARCH plugins'
 layout the same day (*"the toggle list to paste youtube channel links in is quite ugly"*),
 which led to looking at every settings tab for loose paragraphs and bare boxes.
+
+## 2026-10-09 — Test address changed
+
+A test used an address on one of the sites he keeps only in Browser History's
+settings. His ruling the same day: *"just leave it inside the plugin setting."*
+The test now uses a Steam address. 6 tests, 6 passing.
